@@ -12,6 +12,12 @@ void *entry_point(void *value) {
     return NULL;
 }
 
+void message_for_chandya(char *msg){
+    for (int i = 0; i < sizeof(msg); i++){
+        printf("%c",msg[i]);
+    }
+}
+
 int main(int argc, char **argv) {
     pthread_t thread;
 
@@ -22,6 +28,8 @@ int main(int argc, char **argv) {
     pthread_create(&thread, NULL, entry_point, &num);
 
     pthread_join(thread, NULL);
+    
+    message_for_chandya("Hello from London!");
 
     return EXIT_SUCCESS;
 }
